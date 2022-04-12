@@ -1,9 +1,8 @@
 FROM node
 
-COPY . /app/frontend
+COPY package.json /app/backend
+COPY yarn.lock /app/backend
 
-WORKDIR /app/frontend
+WORKDIR /app/backend
 
 RUN yarn install
-
-ENTRYPOINT yarn run dev
