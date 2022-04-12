@@ -15,3 +15,20 @@ services:
       - yarn
       - run
       - start
+
+  frontend:
+    image: node
+    container_name: dockerfrontend
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000
+    build: ./frontend
+    volumes:
+      - ./frontend:/app/frontend
+    working_dir: /app/frontend
+    entrypoint:
+      - yarn
+      - run
+      - dev
+      
