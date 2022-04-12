@@ -1,0 +1,9 @@
+FROM node
+
+COPY . /app/frontend
+
+WORKDIR /app/frontend
+
+RUN yarn install
+
+ENTRYPOINT yarn run dev

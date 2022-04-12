@@ -1,0 +1,9 @@
+FROM node
+
+COPY . /app/backend
+
+WORKDIR /app/backend
+
+RUN yarn install
+
+ENTRYPOINT yarn run start
