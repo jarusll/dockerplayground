@@ -4,7 +4,7 @@ services:
     image: node
     container_name: dockerbackend
     ports:
-      - 5000:3000
+      - 3000:3000
     build: ./backend
     volumes:
       - ./backend:/app/backend
@@ -18,9 +18,7 @@ services:
     image: node
     container_name: dockerfrontend
     ports:
-      - 3000:3000
-    environment:
-      PORT: 3000
+      - 3001:3001
     build: ./frontend
     volumes:
       - ./frontend:/app/frontend
