@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  backend:
+    image: node
+    container_name: dockerbackend
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000
+    build: ./backend
+    volumes:
+      - ./backend:/app/backend
+    working_dir: /app/backend
+    entrypoint:
+      - yarn
+      - run
+      - start
