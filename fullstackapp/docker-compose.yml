@@ -2,6 +2,7 @@ version: "3.9"
 services:
   backend:
     image: node
+    restart: "no"
     container_name: dockerbackend
     ports:
       - 3000:3000
@@ -9,6 +10,9 @@ services:
     volumes:
       - ./backend:/app/backend
     working_dir: /app/backend
+    networks:
+      shared-network:
+        ipv4_address: "172.100.100.10"
     entrypoint:
       - yarn
       - run
@@ -16,6 +20,7 @@ services:
 
   frontend:
     image: node
+    restart: "no"
     container_name: dockerfrontend
     ports:
       - 3001:3001
@@ -23,8 +28,23 @@ services:
     volumes:
       - ./frontend:/app/frontend
     working_dir: /app/frontend
+    networks:
+      shared-network:
+        ipv4_address: "172.100.100.11"
+    environment:
+      backend_api: "172.100.100.10:3000"
     entrypoint:
       - yarn
       - run
       - dev
+      # - node
+      # - /app/frontend/src/globals.js
       
+networks:
+  shared-network:
+    driver: bridge
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.100.100.0/24"
