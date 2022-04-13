@@ -1,8 +1,8 @@
 version: "3.9"
 services:
   backend:
-    image: node
     restart: "no"
+    hostname: dockerbackend
     container_name: dockerbackend
     ports:
       - 3000:3000
@@ -19,8 +19,8 @@ services:
       - start
 
   frontend:
-    image: node
     restart: "no"
+    hostname: dockerfrontend
     container_name: dockerfrontend
     ports:
       - 3001:3001
