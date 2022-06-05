@@ -15,6 +15,7 @@ services:
       - /data_dir
     volumes:
       - jupyter_data:/data_dir
+      - jupyter_config:/root/.jupyter
 
 volumes:
   jupyter_data:
@@ -23,4 +24,10 @@ volumes:
       type: none
       o: bind
       device: /home/jarusll/source
+  jupyter_config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/jarusll/.jupyter
       
