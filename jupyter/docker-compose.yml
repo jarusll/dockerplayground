@@ -9,8 +9,6 @@ services:
       - jupyter
       - notebook
       - --allow-root
-      - --ip
-      - 0.0.0.0
       - --notebook-dir
       - /data_dir
     volumes:
@@ -23,7 +21,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/jarusll/source
+      device: /home/jarusll/jupyter
   jupyter_config:
     driver: local
     driver_opts:
