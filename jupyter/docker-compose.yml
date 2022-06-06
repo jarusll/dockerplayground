@@ -9,6 +9,8 @@ services:
       - jupyter
       - notebook
       - --allow-root
+      - --ip
+      - 0.0.0.0
       - --notebook-dir
       - /data_dir
     volumes:
