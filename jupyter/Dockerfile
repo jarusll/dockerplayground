@@ -6,11 +6,11 @@ WORKDIR /jupyter
 
 # jupyter lab setup
 RUN pip install jupyterlab
-RUN pip install --upgrade jupyterlab-vim
+RUN pip install --upgrade jupyterlab-vim jupyterlab-git
 
 # setup javascript kernel
 RUN apt-get update
-RUN apt-get install npm nodejs -y
+RUN apt-get install npm nodejs git -y
 RUN npm i -g ijavascript --unsafe-perm
 RUN ijsinstall
 
