@@ -10,11 +10,8 @@ RUN pip install --upgrade jupyterlab-vim
 
 # setup javascript kernel
 RUN apt-get update
-# install nvm
-RUN apt-get install curl make g++ -y
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | /bin/bash
-RUN /bin/bash -ci 'nvm install 14'
-RUN /bin/bash -ci 'npm install -g ijavascript --unsafe-perm'
+RUN apt-get install npm nodejs -y
+RUN npm i -g ijavascript --unsafe-perm
 RUN ijsinstall
 
 # # setup data dir
