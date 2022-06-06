@@ -7,7 +7,7 @@ services:
       - 8888:8888
     entrypoint:
       - jupyter
-      - notebook
+      - lab
       - --allow-root
       - --ip
       - 0.0.0.0

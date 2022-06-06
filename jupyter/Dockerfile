@@ -4,7 +4,9 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 WORKDIR /jupyter
 
-RUN pip install jupyter
+# jupyter lab setup
+RUN pip install jupyterlab
+RUN pip install --upgrade jupyterlab-vim
 
 # setup javascript kernel
 RUN apt-get update
