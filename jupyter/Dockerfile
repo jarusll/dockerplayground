@@ -14,5 +14,12 @@ RUN apt-get install npm nodejs git -y
 RUN npm i -g ijavascript --unsafe-perm
 RUN ijsinstall
 
-# # setup data dir
+# setup ruby kernel
+RUN apt install ruby-dev -y # installs ruby 2.5
+RUN gem install io-console -v 0.5.9 # last version to support ruby 2.5
+RUN gem install rake # iruby depends on rake
+RUN gem install iruby
+RUN iruby register --force
+
+# setup data dir
 RUN mkdir /data_dir
