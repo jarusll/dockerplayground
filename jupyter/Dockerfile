@@ -10,7 +10,7 @@ RUN pip install --upgrade jupyterlab-vim jupyterlab-git
 
 # setup javascript kernel
 RUN apt-get update
-RUN apt-get install npm nodejs git -y
+RUN apt-get install npm nodejs pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic git -y
 RUN npm i -g ijavascript --unsafe-perm
 RUN ijsinstall
 
