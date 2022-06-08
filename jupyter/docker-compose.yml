@@ -3,19 +3,26 @@ version: '3.8'
 services:
   jupyter:
     build: ./
-    ports:
-      - 8888:8888
     entrypoint:
       - jupyter
       - lab
       - --allow-root
       - --ip
       - 0.0.0.0
+      - --port
+      - "8000"
       - --notebook-dir
       - /data_dir
     volumes:
       - jupyter_data:/data_dir
       - jupyter_config:/root/.jupyter
+  caddy:
+    image: caddy
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - "./Caddyfile:/etc/caddy/Caddyfile"
 
 volumes:
   jupyter_data:
