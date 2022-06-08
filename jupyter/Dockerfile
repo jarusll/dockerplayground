@@ -10,7 +10,7 @@ RUN pip install --upgrade jupyterlab-vim jupyterlab-git
 
 # setup javascript kernel
 RUN apt-get update
-RUN apt-get install npm nodejs pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic git -y
+RUN apt-get install --no-install-recommends npm nodejs pandoc texlive-xetex texlive-fonts-recommended texlive-plain-generic git make g++ -y
 RUN npm i -g ijavascript --unsafe-perm
 RUN ijsinstall
 
@@ -23,3 +23,7 @@ RUN iruby register --force
 
 # setup data dir
 RUN mkdir /data_dir
+
+# cleanup
+RUN rm -rf /var/lib/apt/lists/*
+
