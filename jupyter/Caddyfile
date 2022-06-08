@@ -1,3 +1,0 @@
-jupyter.surajyadav.xyz:443 {
-	reverse_proxy jupyter:8000
-}
